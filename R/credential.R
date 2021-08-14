@@ -97,7 +97,7 @@ filterCorrs = function(pwmsx, peak_table, an, xr, sample) {
     eic_peak = rawEIC(xr, mzrange=peak[,c("mzmin", "mzmax")], rtrange=c(min, max))$intensity
     if(length(eic_peak) > 6) {eic_peak = mov_av(eic_peak)}
     
-    eic_peaks = alply(peaks, 1, function(x) {
+    eic_peaks = apply(peaks, 1, function(x) {
       temp = rawEIC(xr, mzrange=x[c("mzmin", "mzmax")], rtrange=c(min, max))$intensity
       if(length(temp) > 6) {temp = mov_av(temp)}
       temp
