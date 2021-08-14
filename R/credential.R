@@ -59,7 +59,7 @@ pwms = function(
   mpc_f
 ) {
   cat("\nLooking for pairwise 13C isotopic peak matches within", nrow(peak_table), "peaks:\n")
-  pairwise_matches = alply(peak_table, 1, .progress="text", function(peak) {
+  pairwise_matches = apply(peak_table, 1, .progress="text", function(peak) {
     peaks = peak_table[abs(peak_table[,"rt"] - peak["rt"]) < isotope_rt_delta_s, ,drop=F]
     
     mPeaks(peak, peaks, ppm_for_isotopes, mpc, mpc_f)
